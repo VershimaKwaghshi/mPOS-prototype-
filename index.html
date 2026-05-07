@@ -1,360 +1,715 @@
-MPOS_PROTOTYPE_V2:
-
-  PRIMARY_GOAL:
-    - "Explain mPOS visually"
-    - "Protect intellectual property"
-    - "Control viewer access"
-    - "Demonstrate full lifecycle"
-    - "Explain liquidity recycling"
-    - "Explain global ledger utility"
-
-  MAJOR_ARCHITECTURAL_CHANGES:
+// ============================================================================
+// mPOS — MASTER MEMORY FILE
+// VERSION: PUBLIC PROTOTYPE + SYSTEM LOGIC + CORRECTIONS + RECOMMENDATIONS
+// AUTHOR: Vershima Solomon Kwaghshi / PLeNat Technologies
+// PURPOSE:
+// This file is not software code.
+// This is a structured memory architecture document written in code-style format
+// so the entire mPOS concept can always be reconstructed, understood,
+// reproduced, expanded, or rewritten later without losing core logic.
+// ============================================================================
 
-    removed:
-      - "Red disclaimer repeated on every page"
 
-    reason:
-      - "Creates visual fatigue"
-      - "Weakens seriousness over time"
-      - "Redundant once access gate exists"
 
-    replaced_with:
-      - "Single high-friction access gate"
-      - "Persistent subtle watermark"
-      - "Embedded footer confidentiality tag"
+// ============================================================================
+// SECTION 1 — CORE IDENTITY
+// ============================================================================
 
-  NEW_FLOW:
+mPOS = "Mobile Point of Service"
 
-    SCREEN_0:
-      title: "Access Registration Gateway"
+TYPE:
+- Cross-border settlement infrastructure
+- Embedded inside banking systems
+- Invisible to customers
+- Not a fintech app
+- Not a remittance app
+- Not SWIFT
+- Not blockchain
+- Not crypto
+- Not stablecoin
 
-      purpose:
-        - "Capture viewer identity"
-        - "Establish legal acknowledgment"
-        - "Protect IP"
+CUSTOMER EXPERIENCE:
+- Customer sees only their bank
+- Customer initiates transfer from their normal bank app
+- mPOS operates invisibly underneath
 
-      components:
-        - "Full Name"
-        - "Email"
-        - "Institution"
-        - "Country"
-        - "Role"
+POSITIONING:
+- Banks remain front-facing
+- mPOS becomes settlement rail underneath banks
+- Similar to how Visa/Mastercard operate invisibly
 
-      disclaimer_checkboxes:
-        - "I acknowledge this is confidential intellectual property"
-        - "I will not reproduce or commercialize"
-        - "I understand access does not grant rights"
+MISSION:
+- Help banks compete with fintechs
+- Help banks retain cross-border transaction volume
+- Reduce informal FX market dominance
+- Enable near-instant international transfers
+- Preserve existing banking structure
 
-      submit_behavior:
-        - "Send to Formspree"
-        - "Redirect into prototype"
+CORE IDEA:
+"No money crosses the border in real time."
 
-      visual_style:
-        - "Dark premium"
-        - "Minimal"
-        - "Serious"
-        - "Institutional"
 
-  PROTOTYPE_STRUCTURE:
 
-    total_screens: 15
 
-    screens:
+// ============================================================================
+// SECTION 2 — THE CORE MECHANISM
+// ============================================================================
 
-      1:
-        title: "What mPOS Is"
+PROCESS:
 
-        explains:
-          - "Backend settlement infrastructure"
-          - "Invisible to customers"
-          - "Embedded inside banks"
+1. Sender initiates international transfer inside bank app
 
-      2:
-        title: "Why Current Systems Break"
+2. Bank authenticates customer
 
-        compares:
-          - "SWIFT"
-          - "Fintech dominance"
-          - "Slow settlement"
-          - "Prefunding"
+3. Bank sends API instruction to mPOS engine
 
-      3:
-        title: "The mPOS Solution"
+4. mPOS validates:
+   - KYC signal
+   - AML
+   - tier limits
+   - corridor rules
 
-        explains:
-          - "Local liquidity"
-          - "Digital coordination"
-          - "No real-time international movement"
+5. mPOS assigns sender-side agent
 
-      4:
-        title: "Transaction Begins"
+6. Sender-side agent:
+   - receives local fiat
+   - loses equivalent international ledger value
 
-        explains:
-          - "Customer uses bank app"
-          - "Bank authenticates customer"
-          - "API request sent"
+7. mPOS assigns recipient-side agent
 
-      5:
-        title: "Tier & Compliance Validation"
+8. Recipient-side agent:
+   - pays recipient locally
+   - gains equivalent international ledger value
 
-        explains:
-          - "AML"
-          - "KYC"
-          - "Tier limits"
+9. Recipient receives local payout instantly
 
-      6:
-        title: "Sender Agent Assignment"
+10. Ledger balances continue circulating
 
-        explains:
-          - "Randomized assignment"
-          - "Ledger verification"
+RESULT:
+- No cross-border wire occurs in real time
+- Settlement achieved through mirrored local obligations
 
-      7:
-        title: "Sender Agent Ledger Debit"
 
-        explains:
-          - "Fiat received"
-          - "Ledger debited"
 
-      8:
-        title: "Recipient Agent Assignment"
 
-        explains:
-          - "Recipient-side liquidity check"
-          - "Fiat availability"
+// ============================================================================
+// SECTION 3 — WHAT THE INTERNATIONAL LEDGER IS
+// ============================================================================
 
-      9:
-        title: "Recipient Local Payout"
+IMPORTANT:
 
-        explains:
-          - "Local UK payment"
-          - "Recipient receives funds"
+INTERNATIONAL_LEDGER != MONEY_POOL
 
-      10:
-        title: "Fee Distribution"
+INTERNATIONAL_LEDGER != FOREIGN_CURRENCY
 
-        corrected_logic:
-          - "1% operational deduction"
-          - "0.2% retained recipient-side"
+INTERNATIONAL_LEDGER != CRYPTO
 
-      11:
-        title: "Collective Buffer System"
+INTERNATIONAL_LEDGER != PREFUNDED_ACCOUNT
 
-        explains:
-          - "All corridors feed collective buffers"
-          - "Network stabilization"
+INTERNATIONAL_LEDGER = ACCOUNTING_ENTRY
 
-      12:
-        title: "Immediate Agent Conversion"
 
-        explains:
-          - "Agent-to-agent domestic ledger exchange"
-          - "Liquidity not trapped"
+DESCRIPTION:
+- Internal accounting record
+- Denominated in local fiat value
+- Exists only for international settlement operations
+- Moves digitally only
+- Represents transferable settlement obligation value
 
-      13:
-        title: "Auto Conversion Mechanism"
+EXAMPLE:
+UK agent ledger:
+£8,000 international balance
 
-        explains:
-          - "72 hour countdown"
-          - "Forced conversion"
-          - "Higher fee"
+This does NOT mean:
+- separate GBP account abroad
+- pooled money abroad
+- reserve account
 
-      14:
-        title: "Global Ledger Utility"
+It means:
+- digitally transferable settlement value
+- usable for facilitating international obligations
 
-        explains:
-          - "UK ledger usable across all connected corridors"
+IMPORTANT CHARACTERISTIC:
+The ledger value can facilitate transfers to ANY corridor.
 
-      15:
-        title: "Settlement Complete"
+Example:
+UK ledger balance can facilitate:
+- NG
+- EU
+- Asia
+- US
+- Africa
 
-        explains:
-          - "Full cycle complete"
-          - "No cross-border physical movement"
+without physically moving the underlying fiat internationally.
 
-  NEW_CRITICAL_SCREENS:
 
-    immediate_conversion_screen:
 
-      visual_flow:
-        - "UK-007 wants fiat"
-        - "UK-013 wants international ledger"
-        - "Engine matches both"
-        - "Domestic exchange occurs"
 
-      purpose:
-        - "Prove liquidity is recyclable"
+// ============================================================================
+// SECTION 4 — AGENTS
+// ============================================================================
 
-    auto_conversion_screen:
+AGENTS:
+- Accredited bank customers
+- Not employees
+- Not external companies
+- Existing users inside partner banks
 
-      visual_elements:
-        - "72hr timer"
-        - "Countdown animation"
-        - "Auto-trigger event"
+AGENTS PROVIDE:
+- Local fiat liquidity
+- Settlement participation
+- Ledger circulation
 
-      purpose:
-        - "Prevent hoarding concerns"
+AGENTS EARN:
+- Share of transaction fee
 
-    collective_buffer_screen:
+VERY IMPORTANT:
+Agents DO NOT permanently lock liquidity.
 
-      visual:
-        - "Multiple corridors feeding UK"
+CORRECTION:
+Previous wording implied liquidity was tied up.
 
-      example:
-        - "NG→UK"
-        - "KE→UK"
-        - "SA→UK"
-        - "IN→UK"
+CORRECT WORDING:
+Agents can convert international ledger balance back into fiat immediately through another same-country agent.
 
-      feeding:
-        - "UK collective buffer"
+MAXIMUM HOLD TIME:
+72 hours
 
-      purpose:
-        - "Explain systemic resilience"
+Meaning:
+- liquidity is fluid
+- liquidity is recyclable
+- liquidity is continuously circulating
 
-    global_ledger_screen:
+NOT:
+- frozen capital
+- reserve collateral
+- prefunding model
 
-      visual:
-        - "UK ledger reused globally"
 
-      purpose:
-        - "Demonstrate reusable digital settlement utility"
 
-  IMPORTANT_CORRECTIONS:
 
-    correction_1:
-      old:
-        - "Liquidity tied for 3 days"
+// ============================================================================
+// SECTION 5 — AGENT CONVERSION
+// ============================================================================
 
-      corrected:
-        - "Immediate conversion possible"
+RULE:
+Ledger conversion allowed ONLY between agents in same country.
 
-    correction_2:
-      old:
-        - "0.2% sender deduction"
+ALLOWED:
+UK agent -> UK agent
+NG agent -> NG agent
 
-      corrected:
-        - "0.2% retained recipient-side"
+BLOCKED:
+UK agent -> NG agent
+cross-border ledger swaps
 
-    correction_3:
-      old:
-        - "Buffers corridor-specific"
+WHY:
+- Prevent corridor bypassing
+- Maintain corridor integrity
+- Preserve accounting structure
+- Keep liquidity local
 
-      corrected:
-        - "Buffers network-collective"
+CONVERSION FLOW:
 
-    correction_4:
-      old:
-        - "Ledger appears like new currency"
+1. Agent gains international ledger value
+2. Agent wants local fiat again
+3. Engine matches another same-country agent
+4. Exchange occurs locally
+5. Ledger transferred digitally
+6. Fiat transferred locally
 
-      corrected:
-        - "Strict accounting entry"
+RESULT:
+- Ledger continues circulating
+- Liquidity recycles continuously
+- Corridor remains active
 
-  VISUAL_RECOMMENDATIONS:
 
-    design_language:
-      - "Professional"
-      - "Premium"
-      - "Bank-grade"
-      - "Human understandable"
 
-    avoid:
-      - "Overly technical engineering appearance"
-      - "Crypto aesthetics"
-      - "Dark hacker visuals"
 
-  UI_RECOMMENDATIONS:
+// ============================================================================
+// SECTION 6 — 72 HOUR RULE
+// ============================================================================
 
-    add:
-      - "Animated balances"
-      - "Dynamic ledger movement"
-      - "Countdown timers"
-      - "Corridor health bars"
+RULE:
+Agent should convert ledger within 72 hours.
 
-    maintain:
-      - "Step-by-step progression"
+WHY:
+- Prevent idle ledger accumulation
+- Keep circulation active
+- Prevent corridor stagnation
 
-  WATERMARK_SYSTEM:
+FEES:
 
-    recommendation:
-      - "Persistent email watermark"
+WITHIN_72_HOURS:
+0.05%
 
-    example:
-      - "Viewing Session: john@email.com"
+AFTER_72_HOURS:
+0.08%
+automatic conversion
 
-    location:
-      - "Bottom-right corner"
+AUTO-CONVERSION:
+- engine forces conversion
+- prevents dead liquidity
+- maintains movement
 
-  FOOTER_SYSTEM:
+IMPORTANT:
+This is NOT punishment.
 
-    replace_red_banner_with:
-      - "Persistent footer"
+This is:
+- circulation enforcement
+- liquidity continuity mechanism
 
-    example:
-      - "Confidential Demonstration — Proprietary Infrastructure"
 
-  GITHUB_DEPLOYMENT:
 
-    hosting:
-      - "GitHub Pages"
 
-    forms:
-      - "Formspree integration"
+// ============================================================================
+// SECTION 7 — RANDOM AGENT ASSIGNMENT
+// ============================================================================
 
-    recommended_structure:
+IMPORTANT SECURITY MODEL:
 
-      folders:
-        - "/assets"
-        - "/styles"
-        - "/scripts"
+CUSTOMERS CANNOT SELECT AGENTS
 
-      files:
-        - "index.html"
-        - "prototype.html"
-        - "style.css"
-        - "script.js"
+AGENTS CANNOT SELECT CUSTOMERS
 
-  FORMSPREE_IMPLEMENTATION:
+WHY:
+- prevent routing manipulation
+- prevent collusion
+- prevent liquidity concentration
+- ensure fair circulation
 
-    form_method:
-      - "POST"
+ENGINE DOES:
+- real-time scan
+- qualification filtering
+- random assignment
 
-    endpoint:
-      - "https://formspree.io/f/YOUR_FORM_ID"
+SENDER SIDE SCAN:
+checks:
+- accreditation
+- active status
+- sufficient international ledger balance
 
-    fields:
-      - "name"
-      - "email"
-      - "institution"
-      - "country"
-      - "role"
+RECIPIENT SIDE SCAN:
+checks:
+- accreditation
+- active status
+- sufficient local fiat liquidity
 
-    hidden_fields:
-      - "timestamp"
-      - "prototype_version"
 
-    redirect:
-      - "prototype.html"
 
-  ACCESS_CONTROL_RECOMMENDATIONS:
 
-    optional:
-      - "Password gate"
-      - "Timed access links"
-      - "Session logging"
+// ============================================================================
+// SECTION 8 — FEES
+// ============================================================================
 
-  MOST_IMPORTANT_PRESENTATION_PRINCIPLE:
+TOTAL_VISIBLE_FEE:
+1.2%
 
-    remember:
-      - "Understanding is more important than infrastructure terminology"
+USER SEES:
+1.2% deduction
 
-    prototype_goal:
-      - "People must mentally simulate the system"
+REAL STRUCTURE:
 
-    success_condition:
-      - "Viewer understands how liquidity recycles without money physically crossing borders"
+1.0%
+= operational fee
 
-  FINAL_POSITIONING_STATEMENT:
+0.2%
+= recipient-side corridor liquidity buffer
 
-    official_short_definition:
-      - "mPOS is a bank-embedded settlement coordination infrastructure that synchronizes local liquidity and digitally balances international obligations through accounting ledgers without moving money physically across borders in real time."
+
+IMPORTANT CORRECTION:
+0.2% buffer is NOT deducted sender-side operationally.
+
+ACTUAL FLOW:
+
+SENDER:
+- sees total 1.2%
+
+RECIPIENT AGENT:
+- receives ledger including the 0.2%
+
+THEN:
+0.2% redirected into:
+partner bank escrow/buffer account
+in recipient currency
+
+EXAMPLE:
+NG -> UK
+
+Buffer remains:
+£
+not converted back to NGN
+
+
+
+
+// ============================================================================
+// SECTION 9 — BUFFER LOGIC
+// ============================================================================
+
+VERY IMPORTANT:
+
+NO PREFUNDING MODEL
+
+NO RESERVE SYSTEM
+
+NO LARGE CAPITAL LOCKUP
+
+ONLY:
+dynamic liquidity circulation
+
+BUFFER PURPOSE:
+- corridor correction
+- emergency balancing
+- temporary stabilization
+
+HOW BUFFER GROWS:
+Every corridor contributes.
+
+Example:
+NG -> UK
+GH -> UK
+KE -> UK
+EU -> UK
+
+All contribute to:
+UK corridor buffer pool
+
+RESULT:
+collective balancing capacity
+
+IMPORTANT:
+Imbalance likely affects:
+ONE corridor at a time
+
+NOT:
+all corridors simultaneously
+
+THEREFORE:
+multi-corridor flow naturally stabilizes system
+
+
+
+
+// ============================================================================
+// SECTION 10 — IMBALANCE THEORY
+// ============================================================================
+
+PROBLEM:
+Too many transactions one-directional.
+
+Example:
+NG -> UK overwhelmingly exceeds UK -> NG
+
+RISK:
+Recipient-side liquidity pressure
+
+WHY mPOS BELIEVES IT IS MANAGEABLE:
+
+1. Ledger recyclable in 72 hours max
+
+2. Ledger usable for ANY corridor
+
+3. Multi-country network creates balancing effects
+
+4. Buffer accumulates continuously
+
+5. Same-country exchanges recycle liquidity rapidly
+
+6. Not all corridors imbalance simultaneously
+
+7. Financial institution partnerships expand liquidity reach
+
+8. Government/legal partnerships accelerate expansion
+
+
+
+
+// ============================================================================
+// SECTION 11 — SYSTEM RECOVERY MECHANICS
+// ============================================================================
+
+IF CORRIDOR STRESS OCCURS:
+
+STEP 1:
+use recipient-side corridor buffer
+
+STEP 2:
+increase same-country ledger circulation
+
+STEP 3:
+accelerate agent conversion matching
+
+STEP 4:
+use liquidity from other corridor inflows
+
+STEP 5:
+expand participating institutions
+
+IMPORTANT:
+Still NO prefunding.
+
+SYSTEM RELIES ON:
+circulating settlement obligations
+
+
+
+
+// ============================================================================
+// SECTION 12 — TIER LIMITS
+// ============================================================================
+
+PURPOSE:
+- AML compliance
+- risk management
+- corridor protection
+- transaction control
+
+EXAMPLE:
+
+TIER_1:
+basic KYC
+
+TIER_2:
+enhanced KYC
+
+TIER_3:
+full approval
+
+CORPORATE:
+custom limits
+
+ENFORCEMENT:
+mPOS engine level
+
+NOT:
+manual bank operations
+
+
+
+
+// ============================================================================
+// SECTION 13 — WHY THIS HELPS BANKS
+// ============================================================================
+
+BANKS CURRENTLY LOSING:
+- international payment dominance
+- fintech competition
+- informal market activity
+
+mPOS PROVIDES:
+- near instant settlement
+- embedded infrastructure
+- no banking overhaul required
+- preservation of existing structure
+- scalable cross-border capability
+
+IMPORTANT:
+Banks stay banks.
+
+mPOS becomes invisible rail underneath.
+
+
+
+
+// ============================================================================
+// SECTION 14 — GLOBAL EXPANSION THEORY
+// ============================================================================
+
+STRATEGY:
+Partnership expansion model
+
+EXAMPLE:
+
+Nigeria institutions:
+help penetrate Africa
+
+UK institutions:
+help penetrate Europe and Americas
+
+Mutual legal + institutional leverage
+
+ADVANTAGE:
+- faster entry
+- lower friction
+- regulatory acceleration
+- localized integration
+
+
+
+
+// ============================================================================
+// SECTION 15 — PROTOTYPE PRINCIPLES
+// ============================================================================
+
+IMPORTANT DESIGN DECISION:
+
+Prototype should:
+- be understandable by normal people
+- not overloaded with infrastructure jargon
+- visually explain concepts
+- simplify mechanics
+
+WHY:
+Not only banks will view it.
+
+Audience includes:
+- investors
+- regulators
+- developers
+- lawyers
+- institutions
+- normal people
+
+UNDERSTANDING > TECHNICAL COMPLEXITY
+
+
+
+
+// ============================================================================
+// SECTION 16 — REGISTRATION GATE
+// ============================================================================
+
+BEFORE ACCESSING DEMO:
+
+User should:
+- enter name
+- enter email
+- tick disclaimer boxes
+- submit form
+
+THEN:
+access prototype
+
+PURPOSE:
+- legal acknowledgement
+- visitor tracking
+- demonstration protection
+- professional presentation
+
+IMPLEMENTATION:
+Formspree + GitHub Pages
+
+WORKS FREE.
+
+
+
+
+// ============================================================================
+// SECTION 17 — DISCLAIMER LOGIC
+// ============================================================================
+
+IMPORTANT RECOMMENDATION:
+
+REMOVE_RED_BANNER_FROM_EVERY_PAGE = TRUE
+
+WHY:
+already acknowledged during registration
+
+BETTER:
+single strong entry disclaimer
+
+RESULT:
+cleaner interface
+more professional appearance
+less repetitive
+
+
+
+
+// ============================================================================
+// SECTION 18 — ADDITIONAL PROTOTYPE SCREENS TO BUILD
+// ============================================================================
+
+NEW REQUIRED SCREENS:
+
+1. AGENT TO AGENT CONVERSION
+show:
+- UK agent exchanging ledger with another UK agent
+- immediate fiat recovery
+
+2. AUTO-CONVERSION SCREEN
+show:
+- 72 hour expiry
+- automatic conversion
+- 0.08% fee
+
+3. MULTI-CORRIDOR DEMONSTRATION
+show:
+- ledger facilitating multiple countries
+
+4. CORRIDOR STRESS VISUALIZATION
+show:
+- imbalance correction
+- buffer deployment
+
+5. GLOBAL FLOW MAP
+show:
+- corridor interconnection
+
+6. BUFFER AGGREGATION SCREEN
+show:
+- all corridors contributing to recipient-side buffers
+
+
+
+
+// ============================================================================
+// SECTION 19 — IMPORTANT TERMINOLOGY RULES
+// ============================================================================
+
+AVOID SAYING:
+- pooled money
+- reserve account
+- prefunding
+- frozen liquidity
+- crypto rail
+- synthetic currency
+
+PREFER SAYING:
+- accounting entry
+- digital settlement value
+- circulating ledger
+- local fiat payout
+- corridor balancing
+- settlement obligation
+
+
+
+
+// ============================================================================
+// SECTION 20 — MOST IMPORTANT CORE STATEMENT
+// ============================================================================
+
+mPOS CORE STATEMENT:
+
+"Local money pays locally.
+The ledger balances the obligation digitally."
+
+
+
+
+// ============================================================================
+// SECTION 21 — MOST IMPORTANT ARCHITECTURAL ADVANTAGE
+// ============================================================================
+
+The most important architectural idea:
+
+The same ledger value:
+- can facilitate any corridor
+- recycles continuously
+- converts rapidly
+- does not require prefunding
+- remains local
+- scales through circulation
+
+This is what potentially allows:
+global cross-border scaling
+without massive trapped reserves.
+
+
+
+
+// ============================================================================
+// END OF MASTER MEMORY FILE
+// ============================================================================
